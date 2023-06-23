@@ -1,0 +1,883 @@
+Delivered-To: aiwween5igiwfcw5@gmail.com
+Received: by 2002:a05:6f02:a392:b0:4b:3abe:582e with SMTP id r18csp1611130rcb;
+        Fri, 16 Jun 2023 15:59:44 -0700 (PDT)
+X-Received: by 2002:a05:6a20:3950:b0:10c:dd4f:faa9 with SMTP id r16-20020a056a20395000b0010cdd4ffaa9mr4845238pzg.14.1686956383943;
+        Fri, 16 Jun 2023 15:59:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1686956383; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=OZxxPZalbXBIpLCZT6zait35r5dfQz6CBmiNGTxgh1amqnTGnra66NeDe+wRjWYvZE
+         7oGBiAQPUkCejZ13nzyEOIAyudFl5+5BNXvrk5yptKABULbzvxEm26tecqTyuND8DpUz
+         GOmuUMm7UA8Xu/meXGIjDdt86MmF0QpNbslVCtH6EMyHcutH5cUOvvMIJLjyydC0fqZN
+         AcU5W2X95QU76fQep2yW0mPilg8mb2yhmnfJPnQfYot/rzY+Ur1wq+5QSYCrsMFk2/+W
+         PpK6VeXLZTh8r8kBuTz9zNnf0z3Va4ZTJSXajj0pRd6S9YeboouKAQ8Q81kmm2UlhPLD
+         3OmA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:message-id:list-id:reply-to:mime-version
+         :list-help:date:subject:to:from:dkim-signature;
+        bh=JE2yhkD5jjRN/atdMEHTajW6Uqye30Pw9oL87P2Fou8=;
+        b=lqxsE0kdsoGNw8UXtQaqItP/cSNiaMoXufk+F54GNtqekd7J4CXzTIKZBZM3Ic3vO7
+         huTlxn6qTuzDb2mngNvLmkEEc90rpli7STv/QET2ePca1meF/Dy/Harj6WNUx6U1cUy9
+         THn7pCGzupQGbqXXqtZ5N4LmyCosdoVAfZlvcEdwH42/Z1De/kKzwdFiP77pgckOjxVN
+         ZXMqQzwuDy1pxUmfFmF0un6R7K5JEftiodBXme5N0aF8DeVRx95nZTICLHLfxLr81erz
+         E9N5f7Dr7WlIohm2aH/wJJXYWZHI4T+p0JQ4NrOHnnPxvcYnMGnOZacheKAPKPZEWWuW
+         ZYUQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@emailinfo.bestbuy.com header.s=200608 header.b=Kmi4ETYC;
+       arc=pass (i=1 spf=pass spfdomain=bounce.emailinfo2.bestbuy.com dkim=pass dkdomain=emailinfo.bestbuy.com dmarc=pass fromdomain=emailinfo.bestbuy.com);
+       spf=fail (google.com: domain of bounce-31_html-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=bounce-31_HTML-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=emailinfo.bestbuy.com
+Return-Path: <bounce-31_HTML-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id c4-20020a633504000000b005533b6101bfsor1296964pga.6.2023.06.16.15.59.43
+        for <aiwween5igiwfcw5@gmail.com>
+        (Google Transport Security);
+        Fri, 16 Jun 2023 15:59:43 -0700 (PDT)
+Received-SPF: fail (google.com: domain of bounce-31_html-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com does not designate 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@emailinfo.bestbuy.com header.s=200608 header.b=Kmi4ETYC;
+       arc=pass (i=1 spf=pass spfdomain=bounce.emailinfo2.bestbuy.com dkim=pass dkdomain=emailinfo.bestbuy.com dmarc=pass fromdomain=emailinfo.bestbuy.com);
+       spf=fail (google.com: domain of bounce-31_html-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=bounce-31_HTML-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=emailinfo.bestbuy.com
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20221208; t=1686956383; x=1689548383;
+        h=x-forwarded-for:content-transfer-encoding:message-id:list-id
+         :reply-to:mime-version:list-help:date:subject:to:from:dkim-signature
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JE2yhkD5jjRN/atdMEHTajW6Uqye30Pw9oL87P2Fou8=;
+        b=AXFDBchN/q/PZPnUhHamUQ8sTqANgoyp81XWIzrpxJLOHriZb9eGYFtmAvDhd4TXjF
+         ZMwQmto1Nbep7c8514gO1lg6QI6VF3EaP2x/TdG1UKgQA8sXKVHxF37PG5nfPy9i5Ffm
+         Ph2YSBzjtoOfiEGZpzyDEL1Xan3u7i/faf9K7SmodmXuonN13PWVfiND46igApu4+2m8
+         OM8+MZkAvl2HTB6Pkj4IRGEwclGzSxYdT+dKu+7xyBHxzspY1UtO9DuCqcRwO59IymOk
+         dWdAi6F3iAZw6neF3ZHlbHkEU/ijmuuXttebrfLE+fat8ah2TFGlY9soALtWs1bZwRi0
+         /ifQ==
+X-Gm-Message-State: AC+VfDzFvjaV1AeusCdq/rjsnVM53RAKpq9gv96yjGdHQ34/6oOSUW3p dgjG3iwwIBMbn4dLww+7RH33lQp2fkOEfVfSOQ==
+X-Google-Smtp-Source: ACHHUZ5CYew3sLVPpNDTTwzsmt+vOeV0qKQfrNCsROY3pLcd1UyhJEC2aj7cMWtyTr+mviXU8eyHZI5zpKuGMftRhTYfPKRGbrE=
+X-Received: by 2002:a17:902:c254:b0:1b0:4205:8501 with SMTP id 20-20020a170902c25400b001b042058501mr3022763plg.6.1686956383672;
+        Fri, 16 Jun 2023 15:59:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1686956383; cv=none;
+        d=google.com; s=arc-20160816;
+        b=aerUpd6YqXv/MjAdiFRxuS3TS0TA2cdiAuFpJElLZ83W5dPMsh0EMlUZUcOYH0NDMh
+         N9xZnmxlgGVl3GSisp8jF41v23R708M3Q/8QXXLmOJ4TEhxRGaalhVThJB0L0ka3dRIO
+         YQqzmHaO62tn2Sd9ebhPexuukGsuk9/B2M685sYDkJ4lhVHKT4BYiubML8/qltk/pqbE
+         Mifx3plzhHRUCfoa88HRf7otPevpydenUQ+oWyefrmvD5Ni0z7vbKh2Q2mOjT68gzC7y
+         UUaruxq3V1d7vF8+3c9UYvA88RJnDVjm7hAFSMvajbNrYIqR78liPH+f3ccmvxCrOKUI
+         CDYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:message-id:list-id:reply-to:mime-version
+         :list-help:date:subject:to:from:dkim-signature;
+        bh=JE2yhkD5jjRN/atdMEHTajW6Uqye30Pw9oL87P2Fou8=;
+        b=T/Amc7/eRpW1JnTE5unt8e3Cq1x+7L7xww4oKyplPRKF1BxTYYULjeXrGa+DoYuICw
+         MXcIbK370J+RoX7p1oqlU5oU589SZICeQ5Sj9vPq/O4JvATrvUou0wozrK1EymPhWkmz
+         4a7mBGJ3iGjbUmYp6lFTwO2V6LquiNutVyTsio/RPrMC4lHqtQQ7VHZ4PpdhohggTLoA
+         7nXQBLwM8DpyvR456ruAsu3qLW/WRfr5pR0+ojZbXyC7oD7/E74/fdmkzo7184uCrfyx
+         A75E5pwtxusuMFaSgSDwSXnVNQuRG+1pV33njKNVUp1rmFm+3MHizchUqqodjCCCUPin
+         /U9g==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@emailinfo.bestbuy.com header.s=200608 header.b=Kmi4ETYC;
+       spf=pass (google.com: domain of bounce-31_html-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com designates 136.147.140.129 as permitted sender) smtp.mailfrom=bounce-31_HTML-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=emailinfo.bestbuy.com
+Return-Path: <bounce-31_HTML-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com>
+Received: from mta44.emailinfo2.bestbuy.com (mta44.emailinfo2.bestbuy.com. [136.147.140.129])
+        by gmr-mx.google.com with ESMTPS id f1-20020a170902ce8100b001ae20d30d75si1259438plg.6.2023.06.16.15.59.43
+        for <aiwween5igiwfcw5@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 16 Jun 2023 15:59:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-31_html-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com designates 136.147.140.129 as permitted sender) client-ip=136.147.140.129;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=200608; d=emailinfo.bestbuy.com; h=From:To:Subject:Date:List-Help:MIME-Version:Reply-To:List-ID: X-CSA-Complaints:Message-ID:Content-Type:Content-Transfer-Encoding; i=BestBuyInfo@emailinfo.bestbuy.com; bh=JE2yhkD5jjRN/atdMEHTajW6Uqye30Pw9oL87P2Fou8=; b=Kmi4ETYC+t4Fm56m6P+ToSeqYj8Rm/xjtDGPn7v3KPZdf+ohsl0WxFoqEPkwaSP3ztriURH9mNrG
+   EOG5Xfw/WSSG52m3WLMdt+s974bZNCKHSgHGUUSnvfGQjVpPaeCXOKh1ka+eF1EK1AISfW9zXGfY
+   YOiimSXWMXk4xAvapK0=
+Received: by mta44.emailinfo2.bestbuy.com id hhjklu2fmd4u for <Marzee@brtycope.com>; Fri, 16 Jun 2023 22:44:41 +0000 (envelope-from <bounce-31_HTML-773018711-1294763-97381-311613@bounce.emailinfo2.bestbuy.com>)
+From: Best Buy <BestBuyInfo@emailinfo.bestbuy.com>
+To: <Marzee@brtycope.com>
+Subject: Your Best Buy order has been canceled.
+Date: Fri, 16 Jun 2023 16:44:41 -0600
+List-Help: <https://click.emailinfo2.bestbuy.com/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI5NzM4MSIsInMiOiI3NzMwMTg3MTEiLCJsaWQiOiIzMSIsImoiOiIxMjk0NzYzIiwiamIiOiIzMTE2MTMiLCJkIjoiMTAxNzIifQ.xeWbGlKLCSV7ShEaVT9kypObEYDhvDz4w617eSyZuOE>
+x-CSA-Compliance-Source: SFMC
+MIME-Version: 1.0
+Reply-To: Best Buy <reply-1294763-31_HTML-773018711-97381-311613@emailinfo2.bestbuy.com>
+List-ID: <97338.xt.local>
+X-CSA-Complaints: csa-complaints@eco.de
+X-SFMC-Stack: 1
+x-job: 97381_1294763
+Message-ID: <914047c1-7777-4b08-b1ae-17912de25cfc@ind1s01mta1290.xt.local>
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Forwarded-For: Marzee@brtycope.com aiwween5igiwfcw5@gmail.com
+
+
+<!-- EOMS_0153 : PROD -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+	<title>Best Buy | </title>
+	<style type="text/css">
+	body {
+		-webkit-text-size-adjust: 100%;
+		-ms-text-size-adjust: 100%;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	p { margin: 1em 0; } /*Yahoo paragraph fix*/
+	.ExternalClass { width: 100%; }  /*Outlook.com, Hotmail fix*/
+	.ExternalClass * { line-height: 110%; }  /*Outlook.com, Hotmail fix*/
+	table td { border-collapse: collapse; }  /*This resolves the Outlook 07, 10, and Gmail td padding issue fix*/
+	img {
+		outline: none;
+      	text-decoration: none;
+      	-ms-interpolation-mode: bicubic;
+      	margin: 0;
+	} /* Remove the borders that appear when linking images with "border:none" and "outline:none" */
+	a img { border: none; }
+	@-ms-viewport { width: device-width; } /*outlook.com responsive bug fix */
+	a:link, a:visited, a:active, a:hover { color: #1646a8; }  /*Set default link color*/
+	.appleLinks a {
+		color: #737474;
+		text-decoration: none;
+	}
+	.appleLinks_gray a {
+		color: #49494a;
+		text-decoration: none;
+	}  /*set dates, times, phone numbers, etc... to normal text color*/
+	.third-full { width: 177px; }
+	.twothird-full { width: 423px; }
+	.responsive-half-w { width: 20px; }
+	.responsive-half-h { height: 20px; }
+	
+	/* Order Details Specific Styles */
+	
+	
+	
+		.wyntkBannerBGColor {
+			background-color:#F1F1F1;
+			font: bold 18px Arial; 
+			color: #ffffff;
+		}	
+
+	
+		
+	@media only screen and (max-width: 480px) {
+		html, body {
+			width: 100%;
+			overflow-x: hidden;
+		}
+		table[class=wrapper] {
+			width: 320px !important;
+		}
+		*[class~=block] {
+			width: 320px !important;
+			display: block !important;
+			padding: 0px !important;
+		}
+		td[class=padding-bottom-block] {
+			width: 320px !important;
+			display: block !important;
+			padding: 0 0 20px 0 !important;
+		}
+		td[class=padding-left-block] {
+			width: 300px !important;
+			display: block !important;
+			padding: 0 0 0 10px !important;
+		}
+		td[class=padding-left-right-block] {
+			width: 300px !important;
+			display: block !important;
+			padding: 0 0 0 10px !important;
+		}
+		*[class~=mobile-hidden] {
+			display: none !important;
+		}
+		div[class=show] {
+			display: block !important;
+			margin: 0 !important;
+			padding: 0 !important;
+			overflow: visible !important;
+			width: auto !important;
+			max-height: inherit !important;
+		}
+		*[class=arrange-top] {
+			display: table-header-group !important;
+			width: 100% !important;
+		}
+		*[class=arrange-bottom] {
+			display: table-footer-group !important;
+			width: 100% !important;
+		}
+		*[class=arrange-very-top] {
+			display: table-caption !important;
+			width: 100% !important;
+		}
+		td[class=padding-left] {
+			padding-left: 10px !important;
+		}
+		td[class=padding-right] {
+			padding-right: 10px !important;
+		}
+		td[class~=padding-left-right] {
+			padding-left: 10px !important;
+			padding-right: 10px !important;
+		}
+		td[class=padding-bottom] {
+			padding-bottom: 20px !important;
+		}
+		td[class=three-products-expand] {
+			width: 300px !important;
+		}
+		td[class=headline] {
+			width: 300px !important;
+			display: block !important;
+			padding: 0 10px 20px 10px !important;
+		}
+		img[class=photo] {
+			width: 320px !important;
+			height: auto !important;
+		}
+		td[class=image-expand], img[class=image-expand] {
+			width: 320px !important;
+			height: auto !important;
+		}
+		img[class=img-300] {
+			width: 300px !important;
+		}
+		td[class=disclaimer-text] {
+			width: 300px !important;
+			display: block !important;
+			padding: 10px 10px 0 10px !important;
+		}
+		*[class=lmPadding] {
+			display: block !important;
+		}
+		img[class=img-100] {
+			display: block !important;
+			width: 100% !important;
+			height: auto !important;
+		}
+		td[class=text-scale] {
+			display: block !important;
+			font-size: 18px !important;
+			line-height: 24px !important;
+			padding: 0 10px 10px 10px !important;
+		}
+		*[class=div-shadow] {
+			background-image: url(http://image.emailinfo2.bestbuy.com/lib/fef41d77766c04/m/54/BBY_DivShadow_Full.jpg) !important;
+			background-position: top !important;
+			background-repeat: no-repeat !important;
+			width: 320px !important;
+			height: 15px !important;
+		}
+		*[class=tableBlock] {
+			display: block !important;
+			width: 100% !important;
+		}
+
+		.button{width: 280px !important;max-width: 280px !important}
+		.button a{display:block !important;padding-left:0 !important;padding-right:0 !important}
+
+
+		.nav-topleft { width: 156px !important; }
+		.nav-topright { width: 164px !important; }
+		.third-full, .twothird-full, .lineItem-details { width: 300px; }
+		.lineItem-image, .lineItem-meta { width: 150px; }
+		.responsive-half-w { width: 10px; }
+		.responsive-half-h { height: 10px; }
+		
+		/* Order Details Specific Styles */
+		
+		
+		
+			.wyntkBannerBGColor {
+				background-color:#F1F1F1;
+				font: bold 18px Arial; 
+				color: #ffffff;
+			}	
+			
+		
+	}
+
+	</style>
+</head>
+<body style="background: #f4f4f6; color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 12px; margin: 0px; padding: 0px; -webkit-text-size-adjust: none;" alink="#1646a8" link="#1646a8" bgcolor="#f4f4f6" text="#49494a">
+<!-- EOMS_0153 : PROD : CSG:cef14396-a835-4ed6-9bbe-97e66a31f7e3 -->
+<img src="https://click.emailinfo2.bestbuy.com/open.aspx?ffcb10-fe8f15727c60037b76-fe1015707764027d77147071-fef31d77766c05-ff9b1771-fe2c137776640575721571-fed017717462057e&d=10172&bmt=0" width="1" height="1" alt="">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#f4f4f6" style="table-layout: fixed;">
+    <tr>
+        <td valign="top" style="padding-bottom: 20px;">
+            <div align="center">
+                <table border="0" class="wrapper" cellpadding="0" cellspacing="0" width="640" bgcolor="#ffffff">
+                    <!-- PREVIEW TEXT - ALL THEMES -->
+                    <tr>
+                        <td class="mobile-hidden" bgcolor="#f4f4f6" align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td class="padding-left" bgcolor="#f4f4f6" align="left" valign="top" style="font: 11px Arial; color: #1d252c; padding: 5px 10px 0px 0px;">
+                                        We experienced an issue while processing your order.
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- END PREVIEW TEXT -->
+                    
+     <tr>
+      <td class="block" align="left" valign="top">
+       
+	<!-- BEGIN Gmail Enhancements Logo -->
+	<div itemscope itemtype="http://schema.org/Organization">
+
+		<meta itemprop="name" content="Best Buy">
+		<meta itemprop="logo" content="https://realtime.bestbuy.com/service/rte?kind=liveimage&id=1546407975">
+
+	</div>
+	<!-- END Gmail Enhancements Logo -->
+
+	<table border="0" class="wrapper" cellpadding="0" cellspacing="0" width="640" bgcolor="#f4f4f6">
+	
+
+	
+<!-- BEGIN:  250ok Tracking Pixel -->
+<!– X-250ok-CID: EOMS_0153_20230616–>
+<tr>
+	<td align="left" style="display: none;">
+		<style> @media print{ #_two50 { background-image:url('http://analytics.bestbuy.com/ea/ClOtRzLHiM/?t=p&e=773018711&c=EOMS_0153_20230616'); } } blockquote #_two50, #mailContainerBody #_two50, div.OutlookMessageHeader, table.moz-email-headers-table { background-image:url('http://analytics.bestbuy.com/ea/ClOtRzLHiM/?t=f&e=773018711&c=EOMS_0153_20230616'); } </style><div id='_two50'></div><img id='_two50_img' src='http://analytics.bestbuy.com/ea/ClOtRzLHiM/?&e=773018711&c=EOMS_0153_20230616' width='1' height='1' style='margin:0 !important; padding:0 !important; border:0 !important; height:1px !important; width:1px !important;' />
+	</td>
+</tr>
+<tr>
+	<td align="left" style="display: none;">	
+		
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+<!-- BEGIN:  Marketing Evolution Tracking Pixel (LiveRamp) -->
+<tr>
+	<td align="left" style="display: none;">
+		
+		<img src="https://di.rlcdn.com/456459.gif?pdata=job_id%3D1294763%2Cemail_id%3D" width="1" height="1" border="0" style="display: block;"/>
+	</td>
+</tr>
+</table>
+		
+	</td>
+</tr>
+
+	
+
+	</table>
+
+
+
+			<table border="0" class="wrapper" cellpadding="0" cellspacing="0" width="640" bgcolor="#f4f4f6">
+		
+
+		<!-- Top Header -->
+		<tr>
+			<td align="left" valign="top">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td align="left" valign="bottom" bgcolor="#f4f4f6">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+									<td align="left" valign="bottom" style="padding: 5px 5px 7px 15px; font: 10px Arial; color: #1d252c;">
+										View:&nbsp;&nbsp;<a href="https://view.emailinfo2.bestbuy.com/?qs=5ce7bb9c329d25190dfe9bb0803b5e155c5230ad73db7472ca8bf56f5baa4c8dfb43cd580201c01443946e76d5f3e3953d931df4b10e23175732b86250a235f420e329d1c76c0c6240bc1016a1daf540"  target="_blank" style="text-decoration: none; color: #0046be;">Web</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<!-- Brand bar -->
+		<tr>
+			<td align="left" valign="middle" width="640" bgcolor="#0046bf" style="background-color:#0046bf;">
+				<table border="0" cellpadding="0" cellspacing="0" style="width:174px;">
+					<tr>
+						<td width="87" align="left" valign="top" style="font: 14px Arial; font-weight: bold; color: #ffffff;">
+							<a href="https://click.emailinfo2.bestbuy.com/?qs=804e96ef60585a3583a432c628f6fc4de2f82417929b547c5d6a39852decc268713e433a078523596cef96cf7367822fa65624c799d6e7d9" target="_blank"  style="color: #ffffff; text-decoration: none;">
+								<img alt="BEST BUY" src="https://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/6e372fbc-63a9-4ff5-a173-dcae321273c4.jpg" width="87" height="66" border="0" style="border-width:0;width:100%;max-width:87px;min-width:87px;height:auto;display:block;" />
+							</a>
+						</td>
+						<td width="87" align="left" valign="top" style="font: 14px Arial; font-weight: bold; color: #ffffff;">
+							<a href="https://click.emailinfo2.bestbuy.com/?qs=f336acd1e22c57d0ac70a45250eaa519bd5c30df5cd583da68b2ea5483ac1bbc3e112157c740bf861feb290c775db7398974112fa407552e" target="_blank"  style="color: #ffffff; text-decoration: none;">
+								<img alt="GEEK SQUAD" src="http://image.emailinfo2.bestbuy.com/lib/fef41d77766c04/m/69/BBYGS_DUAL_TOPNAV2.jpg" width="87" height="66" border="0" style="border-width:0;width:100%;max-width:87px;min-width:87px;height:auto;display:block;" />
+							</a>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#ffffff">
+				<div style="font-size: 6px; line-height: 6px; mso-line-height-rule: exactly;">&nbsp;</div>
+			</td>
+		</tr>
+	
+
+		
+			</table>
+		
+
+	
+      </td>
+                    </tr>
+                    <!-- BEGIN - MAIN MESSAGE -->
+                    <tr>
+                        <td>
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding:10px 0 20px;">
+                                <tr>
+                                    <td valign="top">
+                                        <!-- div to control mobile stacking order -->
+                                        <div class="arrange-top">
+                                            <table class="tableBlock" align="left" width="320" cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                    <td width="320" align="left" valign="top">
+                                                        <table cellpadding="0" cellspacing="0" border="0">
+                                                            <tr>
+                                                                <td width="20"></td>
+                                                                <td class="mobile-hidden" width="20"></td>
+                                                                <td style="font: 14px Arial; color: #1d252c; padding:20px 0;" valign="top">
+                                                                    <span style="font: bolder 25px/25px Arial; color: #0046be;">Marzee, we had to cancel your order.</span>
+                                                                    <br /><br />
+                 
+                  
+                   Unfortunately, we had to cancel your order because it has exceeded our orderable quantity limits. Please see our <a href="https://click.emailinfo2.bestbuy.com/?qs=b1801eb2458fee1da3c7dac9942ddc2ab004b378d51d7269bfc9ad38e65aa0dcd622c252aa27426db97d64cc13188750594110fde3ef3337"  target="_blank" style="color:#0046be; text-decoration:none;">Conditions of Use</a>, which explains order limitations and limited quantities.
+                  
+                  <br /><br />
+                  
+                   If you'd like to place an order for your business, our Account Managers at <a href="https://click.emailinfo2.bestbuy.com/?qs=f4b3fbc4e0084a8164585d091c23f0bf9daf83a4b057177f2197e18a860c92fc06dc24cc46e48caa04163e051be834a29a071f38fe489012"  target="_blank" style="color:#0046be; text-decoration:none;">Best Buy for Business<sup style="font-size:0.83em; vertical-align: text-top; _vertical-align: top ; line-height: 1; height: 0;">&trade;</sup></a> will be more than happy to assist you.
+                                   
+                  <br /><br />
+                  
+                 
+                  For details regarding refunds and credits, see the <span style="font-weight:bold;">What You Need to Know</span> section below.
+                  <br /><br />
+                 
+                  Please accept our apology for this inconvenience. We value you as a customer and hope to see you again soon.
+                  <br /><br />
+                  Sincerely, <br/><br/>
+Your Customer Care Team <br/>
+                 
+                                                                </td>
+                                                                <td>
+                                                                    <!--[if !mso]><!-- -->
+                                                                    <div class="show" style="font-size: 0; max-height: 0; overflow: hidden; display: none; mso-hide: all;">
+                                                                        <img src="http://image.emailinfo2.bestbuy.com/lib/fef41d77766c04/m/8/MKT_WB_Spacer.gif" width="20" height="1" border="0" style="display: block;" />
+                                                                    </div>
+                                                                    <!--<![endif]-->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    <!--[if mso]>                                     </td>                                     <td valign="top">                                     <![endif]-->
+                                        <!-- div to control mobile stacking order -->
+                                        <div class="arrange-bottom">
+                                            <table class="tableBlock" align="left" width="320" cellpadding="0" cellspacing="0" border="0">
+                                                <tr>
+                                                    <td width="320" align="center" valign="top" style="font: 14px Arial; padding:20px 0 0 0;">
+                                                    Order Date: 06/16/2023
+                                                    <br /><br />
+                                                    <span style="font: bold 23px Arial; color: #1d252c;">Order #<br />BBY01-806770454665</span>
+                                                    
+              <br /><br />
+              <table width="200" cellpadding="0" cellspacing="0" border="0">
+                 <tr>
+               <td align="center">
+                <table border="0" cellspacing="0" cellpadding="0">
+                 <tr>
+                  <td align="center" class="button" style="border-radius: 3px;" bgcolor="#fff200">
+                <a href="https://click.emailinfo2.bestbuy.com/?qs=f95459e816d02a398c045c6e2e36d5179498ff173212c1b63060b203971fb3dbd14d52e75ea0624817e6f47d663a9dbb8be7bab088c490d1" target="_blank" style="font-size: 14px; font-family: Arial, sans-serif; color: #000000; text-decoration: none; border-radius: 3px; font-weight: bold; padding: 10px 25px; border: 1px solid #fff200; display: inline-block;">View Order Status</a>
+                  </td>
+                 </tr>
+                </table>
+               </td>
+                 </tr>
+              </table>
+                                                    </td>
+                                                    
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- END - MAIN MESSAGE -->
+                    
+     
+      <tr>
+	
+	<td bgcolor="#e1e1e1">
+		<table align="left" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#0046be">
+	
+			<tr>
+				<td width="20" class="responsive-half-w"></td>
+				
+					<td width="30"><img src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/WYNTK-Icon.jpg" width="30" style="display: block;" border="0" /></td>
+					<td width="15"></td>
+					<td width="255" style="font: bold 18px Arial; color: #ffffff;" valign="middle" align="left" height="50" bgcolor="#0046be">
+								
+				What You Need To Know</td>
+				<td width="320" class="mobile-hidden"><img src="http://image.emailinfo2.bestbuy.com/lib/fef41d77766c04/m/8/MKT_WB_Spacer.gif" width="320" height="1" border="0" style="display: block;"></td>
+			</tr>
+		</table>
+	</td>
+</tr>
+
+<tr>
+	
+	<td bgcolor="#e1e1e1">
+		<table align="left" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#e1e1e1">
+	
+			
+			<tr>
+				<td width="20" class="responsive-half-w"></td>
+				
+					<td width="300" style="font: bold 14px Arial; color: #1d252c;" valign="middle" align="left" height="30">
+				
+					Shipping</td>
+				<td width="320" class="mobile-hidden"><img src="http://image.emailinfo2.bestbuy.com/lib/fef41d77766c04/m/8/MKT_WB_Spacer.gif" width="320" height="1" border="0" style="display: block;"></td>
+			</tr>
+			
+		</table>
+	</td>
+</tr>
+<tr><td height="10"></td></tr>
+<tr>
+	<td bgcolor="#e1e1e1">
+		<table align="left" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff">
+			<tr>
+				<td width="20" class="responsive-half-w"></td>
+				<td width="600" class="three-products-expand">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">						<tr>
+							
+								<td style="font: 14px Arial; color: #1d252c;">
+							
+								<strong>Refunds & Credits</strong>
+								<table border="0" cellpadding="0" cellspacing="0">									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;">For credit card payments, we have released your preauthorized funds. It may take your bank up to 10 days to make the adjustment on your account. <strong>Please contact your bank if you experience any issues with your funds.</strong>
+											</td>
+										
+									</tr>									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;">If you used a Best Buy<span style="font-size:10px;"><sup>&reg;</sup></span> gift card, it will be credited with the refund amount. If you no longer have your gift card, <a href='https://www.bestbuy.com/site/customer-service/contact/pcmcat1511375025410.c?id=pcmcat1511375025410' alias='WYNTK - contact us' target='_blank' style='color:#0046be; text-decoration:underline;'>contact us</a> and we'll send a replacement.
+											</td>
+										
+									</tr>									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;">If you used My Best Buy<span style="font-size:10px;"><sup>&reg;</sup></span> reward certificates, points will be credited to your My Best Buy account
+											</td>
+										
+									</tr>									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;">You'll receive credit for any other form of payment
+											</td>
+										
+									</tr>									<tr><td colspan="2" height="1" style="height:1px;"></td></tr>
+								</table>
+							</td>
+						</tr>						<tr><td height="10"></td></tr>
+						<tr><td height="1" bgcolor="e1e1e1"></td></tr>
+						<tr><td height="10"></td></tr>						<tr>
+							
+								<td style="font: 14px Arial; color: #1d252c;">
+							
+								<strong>How to Correct This Issue in the Future</strong>
+								<table border="0" cellpadding="0" cellspacing="0">									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;">Verify that the payment information matches with your bank information
+											</td>
+										
+									</tr>									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;">Contact your bank regarding the cancellation
+											</td>
+										
+									</tr>									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;">Place this order again using a different payment method
+											</td>
+										
+									</tr>									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;">Come into a store and make a purchase
+											</td>
+										
+									</tr>									<tr><td colspan="2" height="1" style="height:1px;"></td></tr>
+								</table>
+							</td>
+						</tr>						<tr><td height="10"></td></tr>
+						<tr><td height="1" bgcolor="e1e1e1"></td></tr>
+						<tr><td height="10"></td></tr>						<tr>
+							
+								<td style="font: 14px Arial; color: #1d252c;">
+							
+								<strong>Please Note</strong><br />This cancellation might affect your order's eligibility for:<br />
+								<table border="0" cellpadding="0" cellspacing="0">									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;"><a href='https://www.bestbuy.com/site/help-topics/shipping-costs-and-timing/pcmcat203400050006.c?id=pcmcat203400050006' alias='WYNTK - Free shipping' target='_blank' style='color:#0046be; text-decoration:underline;'>Free shipping</a>
+											</td>
+										
+									</tr>									<tr>
+										
+											<td valign="top" style="font: 16px Arial; color: #1d252c;"><strong>&bull;&nbsp;&nbsp;&nbsp;</strong>
+											</td>
+											<td style="font: 14px Arial; color: #1d252c;"><a href='https://www.bestbuy.com/site/help-topics/offers-and-digital-coupons/pcmcat204400050009.c?id=pcmcat204400050009' alias='WYNTK - Bundle pricing' target='_blank' style='color:#0046be; text-decoration:underline;'>Bundle pricing</a>
+											</td>
+										
+									</tr>									<tr><td colspan="2" height="1" style="height:1px;"></td></tr>
+								</table>
+							</td>
+						</tr>					</table>
+				</td>
+				<td width="20" class="responsive-half-w"></td>
+			</tr>
+		</table>
+	</td>
+</tr>
+<tr><td height="10"></td></tr>
+     
+     
+<!-- Div Shadow -->
+<tr>
+	<td align="left" valign="top"><img class="photo" src="http://image.emailinfo2.bestbuy.com/lib/fef41d77766c04/m/54/BBY_DivShadow_Full.jpg" alt="" width="640" height="30" style="display: block;" border="0" /></td>
+</tr>
+<tr>
+	<td bgcolor="#ffffff">
+		<table align="left" cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#ffffff">
+			<tr>
+				<td width="20" class="responsive-half-w"></td>
+				<td style="font: bold 18px Arial; color: #787878;" valign="middle" align="left" height="55">
+				
+					<img alt="Featured Help Topics" src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/5/BBOMS_HelpCenterHeader_620.gif" width="310" border="0" style="display:block;" />
+				
+					<table cellpadding="0" cellspacing="0" border="0">
+						<tr><td colspan="2" height="10"></td><td class="mobile-hidden"></td></tr>
+						<tr>
+							<td style="font: 14px Arial;">
+								<a href='https://www.bestbuy.com/gift-card-balance' alias='https://www.bestbuy.com/gift-card-balance' target='_blank' style='color:#; text-decoration:none;'>Check your gift card balance</a>
+								<br /><br />
+							</td>
+							<td width="10" class="mobile-hidden"></td>
+							<td width="10"></td>
+						</tr>
+						<tr>
+							<td>
+							
+								<a href="https://click.emailinfo2.bestbuy.com/?qs=3b674229183be11cba83970f07429f855c71485640b6b54ebfc05936474d18eb4ff4059f6c84758fd47d0f27fbeefa71f7569b25bbcc588e" ><img src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/BBOMS_HelpTopicsButton_DSK.jpg" class="mobile-hidden" width="199" style="display: block;" border="0" /></a>
+								<!--[if !mso]><!-- -->
+								<div class="show" style="font-size: 0; max-height: 0; overflow: hidden; display: none; mso-hide: all;">
+									<a href="https://click.emailinfo2.bestbuy.com/?qs=3b674229183be11cba83970f07429f855c71485640b6b54ebfc05936474d18eb4ff4059f6c84758fd47d0f27fbeefa71f7569b25bbcc588e" ><img src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/BBOMS_HelpTopicsButton_RESP.jpg" width="300" style="display: block;" border="0" /></a>
+								</div>
+								<!--<![endif]-->
+							
+							</td>
+							<td colspan="2"></td>
+						</tr>
+						<tr><td colspan="3" height="10"></td></tr>
+					</table>
+				</td>
+				<td width="220" class="mobile-hidden"><img src="http://image.emailinfo2.bestbuy.com/lib/fef41d77766c04/m/8/MKT_WB_Spacer.gif" width="220" height="1" border="0" style="display: block;"></td>
+			</tr>
+		</table>
+	</td>
+</tr>
+
+                    <tr>
+      <td align="left" valign="top" class="block">
+       
+		<!-- START Footer -->
+
+			<table border="0" class="wrapper" cellpadding="0" cellspacing="0" width="640" bgcolor="#f4f4f6">
+
+		<tr>
+			<td bgcolor="#ffffff">
+				<div style="font-size: 6px; line-height: 6px; mso-line-height-rule: exactly;">&nbsp;</div>
+			</td>
+		</tr>
+		
+		<!-- Second footer nav -->
+
+			<tr>
+				<td bgcolor="#0046be" class="four-column">
+					<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;" class="footernav2">
+						<tr>
+
+							<td bgcolor="#0046be" style="text-align:center; font-size:0; mso-hide: all;">
+								<!--[if (gte mso 9)|(IE)]>
+								<td bgcolor="#0046be" style="text-align:center; font-size:0; border-bottom: none;">
+								<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;">
+								<tr>
+								<td width="160" valign="top" style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:0px;">
+								<![endif]-->
+								<div class="column-footer" style="text-align:center;display:inline-block;width:50%;max-width:160px;min-width:160px;vertical-align:top; border-bottom: solid 1px #E0e6ef; mso-hide: all; text-align:center;">
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;text-align:center;">
+										<tr>
+											<td align="center" style="font-family: Arial, sans-serif;color:#ffffff;width:160px;font-size:13px; padding-top: 12px; padding-bottom: 13px; font-weight:bold;">
+												<a href="https://click.emailinfo2.bestbuy.com/?qs=565677ac4b1c1f8b2661739aa0dc6dcab1b2fe8e65ac4b2d332affc3643a1cb56b2bb79497eb506765fb61802a87dbdd60b09162e4e67ee6" target="_blank"  style="text-decoration: none; color: #ffffff; text-align:center;">Deal of the Day</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<!--[if (gte mso 9)|(IE)]>
+								</td><td width="160" valign="top" style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:0px;">
+								<![endif]-->
+								<div class="column-footer" style="text-align:center;display:inline-block;width:50%;max-width:160px;min-width:160px;vertical-align:top; border-bottom: solid 1px #E0e6ef; mso-hide: all; text-align:center;">
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;text-align:center;">
+										<tr>
+											<td align="center" style="font-family: Arial, sans-serif;color:#ffffff;width:160px;font-size:13px; padding-top: 12px; padding-bottom: 13px; font-weight:bold;">
+												<a href="https://click.emailinfo2.bestbuy.com/?qs=562c966519e0a75954b78da16ea159ebe7861381815fd180044143d05a6fda2e08068436f8b57d200242803d66f40ed0a9b60f7871a7cd4e" target="_blank"  style="text-decoration: none; color: #ffffff; text-align:center;">Mobile App</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<!--[if (gte mso 9)|(IE)]>
+								</td><td width="160" valign="top" style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:0px;">
+								<![endif]-->
+								<div class="column-footer" style="text-align:center;display:inline-block;width:50%;max-width:160px;min-width:160px;vertical-align:top; border-bottom: solid 1px #E0e6ef; mso-hide: all; text-align:center;">
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;text-align:center;">
+										<tr>
+											<td align="center" style="font-family: Arial, sans-serif;color:#ffffff;width:160px;font-size:13px; padding-top: 12px; padding-bottom: 13px; font-weight:bold;">
+												<a href="https://click.emailinfo2.bestbuy.com/?qs=a9b050513963facc58e5189bb5bdb0a3f110f2ccc9ba4fa1662361475e879f54484b9eacc535558d56c2aa95f7fece542a6ea699ffb0b65d" target="_blank"  style="text-decoration: none; color: #ffffff; text-align:center;">Credit Cards</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<!--[if (gte mso 9)|(IE)]>
+								</td><td width="160" valign="top" style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:0px;">
+								<![endif]-->
+								<div class="column-footer" style="text-align:center;display:inline-block;width:50%;max-width:160px;min-width:160px;vertical-align:top; border-bottom: solid 1px #E0e6ef; mso-hide: all; text-align:center;">
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;text-align:center;">
+										<tr>
+											<td align="center" style="font-family: Arial, sans-serif;color:#ffffff;width:160px;font-size:13px; padding-top: 12px; padding-bottom: 13px; font-weight:bold; text-align:center;">
+												<a href="https://click.emailinfo2.bestbuy.com/?qs=43d17ada12d5588591b937609482138e1a1a6209a143437523e7bf5cbdff7c97fc0051dfa6748245247f36922f27c09b02a63c07b71500d3" target="_blank"  style="text-decoration: none; color: #ffffff;">Support Center</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<!--[if (gte mso 9)|(IE)]>
+								</td>
+								</tr>
+								</table>
+								<![endif]-->
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+		<!-- Social media -->
+
+			<tr>
+				<td bgcolor="#0046be">
+					<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0; mso-hide: all;" class="footersocial">
+					<!--[if (gte mso 9)|(IE)]>
+					<table width="430" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;" align="center">
+					<![endif]-->
+						<tr>
+							<td bgcolor="#0046be" style="text-align:center;font-size:0;">
+								<div class="column-footer" style="text-align:center;display:inline-block;width:100%;max-width:235px;min-width:235px;vertical-align:top; overflow:hidden;">
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;text-align:left;">
+										<tr>
+											<td class="" align="center" style="font-family: Arial, sans-serif;color:#ffffff;width:640px;font-size:13px;font-weight:bold;">
+												<div style="font-size: 12px; line-height: 12px; mso-line-height-rule: exactly;">&nbsp;</div>
+												Follow us and share your story
+												<div style="font-size: 12px; line-height: 12px;" class="m-hide">&nbsp;</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+							<!--[if (gte mso 9)|(IE)]>
+							</td><td valign="top" style="text-align:center;font-size:0;">
+							<![endif]-->
+								<div class="column-footer" style="text-align:center;display:inline-block;width:50%;max-width:180px;min-width:180px;vertical-align:top; overflow:hidden;">
+									<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing:0;text-align:left;">
+										<tr>
+											<td align="center" style="font-family: Arial, sans-serif;color:#ffffff;width:320px; font-size: 14px;">
+												<div style="font-size: 8px; line-height: 8px;">&nbsp;</div>
+												<a href="https://click.emailinfo2.bestbuy.com/u/?qs=5f9f67a7a223d2ea67292febaa288435679f9401c8b57340c841bb0081bb1587126e55b15390b9e444e1cf886c7479f7ac71ab20ac93576d"   target="_blank" style="text-decoration: none; color: #ffffff;"><img src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/icon-social-fb.gif" width="24" height="24" align="absmiddle" alt="Facebook" style="width: 24px; height: 24px;" /></a>&nbsp;
+												<a href="https://click.emailinfo2.bestbuy.com/u/?qs=9127e924ded45388c4f11d22d4374f8990b11c33e9998ce94d26cb83ed4cc0dba9645058169bf9360d081753f55f0de58d24116d93b953a8"   target="_blank" style="text-decoration: none; color: #ffffff;"><img src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/icon-social-tw.gif" width="24" height="24" align="absmiddle" alt="Twitter" style="width: 24px; height: 24px;" /></a>&nbsp;
+												<a href="https://click.emailinfo2.bestbuy.com/u/?qs=15049449d2da703b72ec8fc72fe80899d3f245167bd29fc67758d6c7c7c147d7f33e7f8f7107b9b46775992a180fac79831b4785028cb321"   target="_blank" style="text-decoration: none; color: #ffffff;"><img src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/icon-social-ig.gif" width="24" height="24" align="absmiddle" alt="Instagram" style="width: 24px; height: 24px;" /></a>&nbsp;
+												<a href="https://click.emailinfo2.bestbuy.com/u/?qs=837b6227a2453d15069c74a9a0b574fd835927e1dd575597e9d3b041064e11ebd2838c98fdb2473b6f154bfc9d2c25fd8fdd1a89284cf9b3"   target="_blank" style="text-decoration: none; color: #ffffff;"><img src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/icon-social-pi.gif" width="24" height="24" align="absmiddle" alt="Pinterest" style="width: 24px; height: 24px;" /></a>&nbsp;
+												<a href="https://click.emailinfo2.bestbuy.com/u/?qs=f7a404f5c7f80d37f66187330c088947385e4745a775848da65f585cdd8373d1e84bcf014ec24ba564ef5bf71112fd60832594c04ad693b8"   target="_blank" style="text-decoration: none; color: #ffffff;"><img src="http://image.emailinfo2.bestbuy.com/lib/fef31d77766c05/m/6/icon-social-in.gif" width="24" height="24" align="absmiddle" alt="LinkedIn" style="width: 24px; height: 24px;" /></a>
+												<div style="font-size: 8px; line-height: 8px;" class="m-12h">&nbsp;</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+		<!-- Map -->
+
+				</table>
+
+      </td>
+                    </tr>
+                    <tr>
+                        
+                        <td class="block" align="left" valign="top" bgcolor="#f4f4f6"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+	
+	
+	
+		<tr>
+			<td class="disclaimer-text" align="left" valign="top" bgcolor="#f4f4f6" style="font: 10px Arial; color: #1d252c; padding: 10px 10px 0 10px;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">										
+		
+	<tr>
+		<td align="left" style="font-family: Arial, Verdana, sans-serif; font-size: 10px; color: #1d252c;">Your privacy is important to Best Buy. For more information on how Best Buy protects your privacy, steps you can take to protect your personal information and alerts on privacy risks facing consumers, please visit the <a href="https://click.emailinfo2.bestbuy.com/?qs=e8de8662c44eba96a7a4cea012c638c0254d6c702220f5c2aa7d10fedfb297ae9c4806b4e5cde2d02696ab6889527ca15c9c8a5e089274de"  target="_blank" style="font-family: Arial, sans-serif; font-size: 9px; color: #1d252c; text-decoration: underline;"><span style="color: #1d252c">Best Buy Privacy Hub</span></a>.
+
+		</td>
+	</tr>
+</table></td>
+		</tr>
+		
+		
+		
+		
+		
+		
+			<tr>	
+				<td class="disclaimer-text" align="left" valign="top" bgcolor="#f4f4f6" style="font: 10px Arial; color: #1d252c; padding: 10px 10px 0 10px;">Best Buy 7601 Penn Avenue South, Richfield, MN 55423-3645</td>
+			</tr>	
+		
+		
+		<tr>
+			<td class="disclaimer-text" align="left" valign="top" bgcolor="#f4f4f6" style="font: 10px Arial; color: #1d252c; padding: 10px 10px 0px 10px;">&copy; 2023 Best Buy. All rights reserved.</td>
+		</tr>
+	
+</table></td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+</html></body>
